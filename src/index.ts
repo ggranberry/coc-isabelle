@@ -21,9 +21,9 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
 
     // This command isn't recognized so we're just going to comment it out for now
-    // if (!config.get<boolean>('useHtmlOutput', false)) {
-    //     extraArgs.push('-o', 'vscode_html_output=false')
-    // }
+    if (!config.get<boolean>('useHtmlOutput', false)) {
+        extraArgs.push('-m', 'ASCII')
+    }
 
     const serverOptions: ServerOptions = {
         command: config.get<string>('command', 'isabelle'),
